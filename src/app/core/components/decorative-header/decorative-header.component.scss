@@ -1,0 +1,25 @@
+
+$svg-width: 200px;
+.decorative-header__container {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 1.5rem;
+  margin-block-end: 2rem;
+  overflow: hidden;
+  background: #9d9b9b;
+  border-radius: 0.625rem;
+  transition: background 0.3s ease;
+
+  .decorative-header__image {
+    width: $svg-width;
+    height: auto;
+    margin-bottom: var(--spacing-r-xl);
+
+    // stylelint-disable selector-pseudo-element-no-unknown
+    ::ng-deep svg {
+      overflow: unset;
+    }
+
+  }
+}
