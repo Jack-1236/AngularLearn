@@ -45,7 +45,6 @@
   h4,
   h5,
   h6 {
-    margin: 0;
     font-family: var(--inter-tight-font), serif;
     font-weight: var(--font-weight-xregular);
     text-wrap: balance;
@@ -56,22 +55,17 @@
   }
 
   h2 {
-    margin-block: var(--spacing-r-3xl) var(--spacing-r-md);
+  //  margin-block: var(--spacing-r-3xl) var(--spacing-r-md);
     font-size: var(--font-size-xl);
   }
 
   p {
-    margin-block: 0 var(--spacing-r-xl);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-lg);
     letter-spacing: var(--letter-spacing-sm);
   }
 
-  p ~ ul,
-  p ~ ol {
-    margin-block-start: 0;
-  }
 
   ul,
   ol {
@@ -88,11 +82,11 @@
 
   hr {
     width: 100%;
-    margin-block: var(--spacing-r-xl);
+   // margin-block: var(--spacing-r-xl);
     border: 0;
     border-color: var(--senary-contrast);
     border-style: solid;
-    border-block-start-width: 1px;
+   // border-block-start-width: 1px;
     transition: border-color 0.3s ease;
   }
 
