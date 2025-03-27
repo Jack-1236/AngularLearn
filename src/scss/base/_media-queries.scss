@@ -1,0 +1,13 @@
+$screen-phone: 430px;
+
+@mixin media-phone-only {
+  @media screen and (max-width: $screen-phone) {
+    @content;
+  }
+}
+
+@mixin media-pc-only {
+  @media screen and (min-width: $screen-phone) {
+    @content;
+  }
+}

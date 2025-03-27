@@ -1,0 +1,63 @@
+@use "base/media-queries" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+  max-width: 80ch;
+
+  @include media-phone-only {
+    max-width: 41ch;
+  }
+
+  p {
+    margin-block: 10px 10px;
+    margin: 10px;
+    line-height: 25px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #424242;
+
+    b {
+      color: #0d0e0f;
+    }
+
+  }
+
+  .text--medium {
+    color: #000000;
+    font-size: larger;
+  }
+
+
+  .img-container {
+    text-align: center;
+    border-bottom: 1px solid #e1eefc;
+
+    img {
+      width: 130px;
+      height: auto;
+      margin: 0 10px 35px 0;
+
+    }
+  }
+
+  .card_grid_container {
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap: 10px;
+    @include media-phone-only {
+      grid-template-columns:repeat(1, 1fr);
+    }
+
+    h3, p, span {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+  }
+
+
+}
+

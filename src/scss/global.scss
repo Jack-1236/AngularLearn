@@ -1,0 +1,27 @@
+@use '@angular/material' as mat;
+@use "base/_theme-colors" as theme-color;
+@use 'base/svg-color' as svg-color;
+@use 'components/_kbd' as kbd;
+@use 'components/mat-card' as matCard;
+@use 'base/typography' as m-typography;
+
+
+@include mat.core();
+@include kbd.kbd;
+@include svg-color.svg-world();
+@include matCard.card();
+@include m-typography.typography();
+
+html,
+body {
+  @include mat.theme((
+    color: theme-color.$primary-palette,
+    density: 0,));
+
+}
+
+
+
+
+
+

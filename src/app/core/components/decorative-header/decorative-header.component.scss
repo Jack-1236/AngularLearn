@@ -1,25 +1,20 @@
+@use 'base/media-queries.scss' as *;
 
-$svg-width: 200px;
 .decorative-header__container {
-  position: relative;
   display: flex;
   flex-direction: column-reverse;
-  padding: 1.5rem;
+  justify-items: center;
+  margin:2px;
+  padding-left: 1.0rem;
   margin-block-end: 2rem;
   overflow: hidden;
-  background: #9d9b9b;
+  background: #f6f5f6;
   border-radius: 0.625rem;
   transition: background 0.3s ease;
 
-  .decorative-header__image {
-    width: $svg-width;
-    height: auto;
-    margin-bottom: var(--spacing-r-xl);
-
-    // stylelint-disable selector-pseudo-element-no-unknown
-    ::ng-deep svg {
-      overflow: unset;
-    }
-
+  @include media-phone-only {
+    margin-block-end: 1rem;
   }
 }
+
+

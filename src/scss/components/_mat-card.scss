@@ -1,0 +1,12 @@
+@use '@angular/material' as mat;
+
+@mixin card() {
+  :root {
+    --mat-card-header-font-size: 18px;
+    --mat-card-content-font-size: 10px;
+    --mat-card-title-font-size: 25px;
+  }
+
+}
+
+
