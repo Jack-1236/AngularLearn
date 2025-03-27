@@ -1,0 +1,30 @@
+@if (href()) {
+  <a class="card-container" target="_blank" [href]="href()">
+    <ng-container [ngTemplateOutlet]="cardContent"/>
+  </a>
+} @else {
+  <div class="card-container">
+    <ng-container [ngTemplateOutlet]="cardContent"/>
+  </div>
+}
+<ng-template #cardContent>
+  <mat-card appearance="outlined">
+
+    <mat-card-header class="card-heading">
+      <mat-card-title>
+        <ng-content select="heading"></ng-content>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="card-body">
+      <ng-content select="body"></ng-content>
+    </mat-card-content>
+
+    <mat-card-content class="card-footer">
+      <ng-content select="footer"></ng-content>
+    </mat-card-content>
+
+  </mat-card>
+
+</ng-template>
+

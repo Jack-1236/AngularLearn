@@ -1,0 +1,41 @@
+@use "base/media-queries" as *;
+
+:host {
+  .card-container {
+    text-decoration: none;
+    color: #0d0e0f;
+    transition: border-color 0.3s ease,
+    background-color 0.3s ease;
+    background-color: #fdfcfc !important;
+    border-radius: 10px !important;
+
+    @include media-pc-only {
+      :hover {
+        background-color: #f4f8fc !important;
+      }
+    }
+
+
+    mat-card {
+      border: rgba(31, 31, 31, 0.06) solid 1px;
+      border-radius: 10px !important;
+    }
+
+    .card-heading {
+    }
+
+    .card-body {
+    }
+
+    .card-footer {
+      color: rgb(6, 107, 229);
+    }
+
+  }
+}
+
+
+
+
+
+
