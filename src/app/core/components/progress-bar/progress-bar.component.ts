@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal, Signal, viewChild} from '@angular/core';
-import {MatProgressBar, MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {
   NavigationCancel,
   NavigationEnd,
@@ -10,7 +10,6 @@ import {
 } from '@angular/router';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {filter, map, switchMap, take} from 'rxjs';
-import {Sign} from 'node:crypto';
 import {NgIf} from '@angular/common';
 
 export const PROGRESS_BAR_DELAY = 30;

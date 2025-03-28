@@ -1,15 +1,19 @@
-import {Component} from '@angular/core';
+import {Component, inject,  OnInit, signal} from '@angular/core';
 import {DecorativeHeaderComponent} from '../../core/components/decorative-header/decorative-header.component';
-import {NgForOf, NgOptimizedImage} from '@angular/common';
+import {NgForOf} from '@angular/common';
 import {CardItemComponent} from '../../core/components/card-item/card-item.component';
+import {GoogleAnalyticsService} from './service/google-analytics.service';
+
 
 @Component({
   selector: 'app-home',
-  imports: [DecorativeHeaderComponent, NgOptimizedImage, CardItemComponent, NgForOf],
+  imports: [DecorativeHeaderComponent, CardItemComponent, NgForOf],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  private readonly googleService = inject(GoogleAnalyticsService);
 
   readonly cardItems = [
     {
@@ -43,4 +47,14 @@ export class HomeComponent {
       footer: "Discover Angular Animations"
     }]
 
+  readonly activeUsers = signal(1)
+
+  ngOnInit(): void {
+    this.fetchRealtimeUsers();
+    setInterval(() => this.fetchRealtimeUsers(), 5000);
+  }
+
+  fetchRealtimeUsers() {
+    this.googleService.getRealtimeUsers().subscribe(data => this.activeUsers.set(Math.max(data.activeUsers || 0, 1)));
+  }
 }

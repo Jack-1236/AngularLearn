@@ -1,8 +1,8 @@
 @mixin typography() {
   :root {
     --fallback-font-stack: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
-      roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --code-font: 'DM Mono', monospace;
     --inter-font: 'Inter', var(--fallback-font-stack);
     --inter-tight-font: 'Inter Tight', var(--fallback-font-stack);
@@ -55,11 +55,12 @@
   }
 
   h2 {
-  //  margin-block: var(--spacing-r-3xl) var(--spacing-r-md);
+    // margin-block: var(--spacing-r-3xl) var(--spacing-r-md);
     font-size: var(--font-size-xl);
   }
 
   p {
+
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-lg);
@@ -69,6 +70,7 @@
 
   ul,
   ol {
+
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-lg);
@@ -76,17 +78,16 @@
   }
 
   a {
+
     font-weight: var(--font-weight-xregular);
     text-decoration: none;
   }
 
   hr {
     width: 100%;
-   // margin-block: var(--spacing-r-xl);
     border: 0;
     border-color: var(--senary-contrast);
     border-style: solid;
-   // border-block-start-width: 1px;
     transition: border-color 0.3s ease;
   }
 

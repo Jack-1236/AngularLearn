@@ -37,7 +37,7 @@
     />
   </div>
 
-  <h2>Key features</h2>
+  <h2 >Key features</h2>
 
   <div class="card_grid_container">
     <app-card-item *ngFor="let item of cardItems" [href]="item.href">
@@ -71,6 +71,10 @@
       width="795"
       height="809"
     >
+  </div>
+
+  <div class="bottom_title">
+    <p>Users seeing this page: {{ activeUsers() }}</p>
   </div>
 
 </main>
