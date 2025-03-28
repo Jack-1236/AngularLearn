@@ -9,5 +9,5 @@ import {NgTemplateOutlet} from '@angular/common';
   styleUrl: './card-item.component.scss'
 })
 export class CardItemComponent {
-  readonly href = input<string>('');
+  readonly href = input<string>("");
 }

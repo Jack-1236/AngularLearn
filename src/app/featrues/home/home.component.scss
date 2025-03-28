@@ -45,7 +45,7 @@
 
   .card_grid_container {
     display: grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2, 1fr);
     gap: 30px;
     @include media-phone-only {
       grid-template-columns:repeat(1, 1fr);
@@ -140,7 +140,14 @@
     }
   }
 
-  .bottom_title{
+
+  @include media-phone-only {
+    .image-item1, .image-item2 {
+      margin-top: 30px;
+    }
+  }
+
+  .bottom_title {
     text-align: center;
   }
 }
