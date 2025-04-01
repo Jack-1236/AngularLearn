@@ -1,5 +1,8 @@
 @mixin typography() {
   :root {
+    --nav-default-color: #727171;
+
+
     --fallback-font-stack: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
     roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -44,7 +47,9 @@
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  span
+  {
     font-family: var(--inter-tight-font), serif;
     font-weight: var(--font-weight-xregular);
     text-wrap: balance;

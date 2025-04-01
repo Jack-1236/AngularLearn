@@ -11,7 +11,7 @@
     max-width: 41ch;
   }
 
-  p {
+  .content-p {
     margin-block: 10px 10px;
     margin: 10px;
     line-height: 25px;
@@ -22,14 +22,12 @@
     b {
       color: #0d0e0f;
     }
-
   }
 
   .text--medium {
     color: #000000;
     font-size: larger;
   }
-
 
   .img-container {
     text-align: center;
@@ -54,6 +52,10 @@
     h3, p, span {
       margin-left: 0;
       margin-right: 0;
+    }
+
+    p {
+      color: #424242;
     }
 
   }
@@ -139,7 +141,6 @@
       }
     }
   }
-
 
   @include media-phone-only {
     .image-item1, .image-item2 {

@@ -129,7 +129,7 @@ $_palettes: (
 $_rest: (
   secondary: map.get($_palettes, secondary),
   neutral: map.get($_palettes, neutral),
-  neutral-variant: map.get($_palettes,  neutral-variant),
+  neutral-variant: map.get($_palettes, neutral-variant),
   error: map.get($_palettes, error),
 );
 
@@ -201,4 +201,9 @@ $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
     surface-variant: _high-contrast-value(#e3e2e2, #464747, $theme-type),
     on-surface-variant: _high-contrast-value(#000000, #ffffff, $theme-type),
   ))
- }
+}
+
+
+
+
+$header-background-color:map.get($primary-palette, 25);
