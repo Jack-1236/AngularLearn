@@ -1,0 +1,52 @@
+@use 'base/media-queries' as *;
+@use 'base/theme-colors.scss' as *;
+
+.navbar-container {
+  flex-wrap: wrap;
+  height: auto;
+  padding: 0;
+
+  a {
+    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-left: 3px;
+
+    mat-icon {
+      $icon-size: 35px;
+
+      width: $icon-size;
+      height: $icon-size;
+
+      img {
+        width: $icon-size;
+        height: $icon-size;
+      }
+    }
+
+    p {
+      padding: 5px;
+    }
+  }
+
+
+  @include media-phone-only() {
+    .nav-item-home, {
+      order: 1;
+      flex: 1 1 100%;
+      justify-content: start;
+      margin-top: 5px;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+
+    .nav-item-login, .nav-item-register {
+      order: 2;
+      flex: 1 1 auto;
+      justify-content: start;
+      align-items: center;
+
+    }
+
+  }
+
+}
