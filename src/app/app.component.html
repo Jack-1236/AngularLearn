@@ -1,10 +1,13 @@
 <app-progress-bar/>
-<button class="app__content-skip-button" type="button" (click)="focusFirstHeading()">Skip to main content</button>
-<div class="app__main-container">
-  <app-navbar></app-navbar>
-  <div class="app__page-container">
-    <!--    <app-cookie-popup/>-->
-    <router-outlet/>
+<div class="app-main-container">
+
+  <div class="app-main-header">
+    <app-header></app-header>
   </div>
-  <!--  <app-footer/>-->
+
+  <div class="app-main-content">
+    <router-outlet></router-outlet>
+  </div>
+
 </div>
+

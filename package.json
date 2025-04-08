@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-component/router": "^0.4.1",
     "@angular/animations": "^19.1.0",
     "@angular/cdk": "^19.1.4",
     "@angular/common": "^19.1.0",
@@ -24,6 +25,7 @@
     "@angular/router": "^19.1.0",
     "@angular/ssr": "^19.1.6",
     "express": "^4.18.2",
+    "hammerjs": "^2.0.8",
     "rxjs": "~7.8.0",
     "sass": "^1.86.1",
     "tslib": "^2.3.0",

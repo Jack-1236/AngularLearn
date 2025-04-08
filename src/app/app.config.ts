@@ -18,6 +18,7 @@ import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/ht
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideCloudinaryLoader} from '@angular/common';
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),

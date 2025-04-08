@@ -15,28 +15,7 @@
 
     gtag('config', 'G-9SZHZ6B85Z');
   </script>
-  <script>
-    // This logic must execute early, so that we set the necessary
-    // CSS classes to the document node and avoid unstyled content
-    // from appearing on the page.
-    const THEME_PREFERENCE_LOCAL_STORAGE_KEY = 'themePreference';
-    const DARK_THEME_CLASS_NAME = 'theme-dark--mode';
-    const LIGHT_THEME_CLASS_NAME = 'theme-light--mode';
-    const PREFERS_COLOR_SCHEME_DARK = '(prefers-color-scheme: dark)';
 
-
-    const theme = localStorage.getItem(THEME_PREFERENCE_LOCAL_STORAGE_KEY) ?? 'dark';
-    const prefersDark = window.matchMedia && window.matchMedia(PREFERS_COLOR_SCHEME_DARK).matches;
-    const documentClassList = this.document.documentElement.classList;
-
-    // clearing classes before setting them.
-    this.document.documentElement.className = '';
-    if (theme === 'dark' || (theme === 'auto' && prefersDark)) {
-      documentClassList.add(DARK_THEME_CLASS_NAME);
-    } else {
-      documentClassList.add(LIGHT_THEME_CLASS_NAME);
-    }
-  </script>
   <meta charset="utf-8"/>
   <title i18n>Angular Example App</title>
   <base href="/"/>
