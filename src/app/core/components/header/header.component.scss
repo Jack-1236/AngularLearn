@@ -1,0 +1,28 @@
+:host {
+  .header-container {
+    background-color: #417531;
+
+    .header-icon {
+      padding-left: 5px;
+      $icon-size: 40px;
+      display: flex;
+      align-items: center;
+      width: auto;
+      gap: 10px;
+
+      mat-icon {
+        width: $icon-size;
+        height: $icon-size;
+
+        img {
+          width: $icon-size;
+          height: $icon-size;
+        }
+      }
+
+      h3 {
+        color: white;
+      }
+    }
+  }
+}
