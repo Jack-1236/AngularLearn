@@ -5,6 +5,7 @@ import {UserComponent} from './featrues/user/user.component';
 import {SettingComponent} from './featrues/setting/setting.component';
 import {ROOT_URLS} from './core/constants/urls.constants';
 import {HomeComponent} from './featrues/home/home.component';
+import {ImagesComponent} from './featrues/images/images.component';
 
 export const appRoutes: Routes = [
   {
@@ -13,7 +14,8 @@ export const appRoutes: Routes = [
     children: [
       {path: ROOT_URLS.homeChild.description, component: DescriptionComponent},
       {path: ROOT_URLS.homeChild.user, component: UserComponent},
-      {path: ROOT_URLS.homeChild.setting, component: SettingComponent}]
+      {path: ROOT_URLS.homeChild.setting, component: SettingComponent},
+      {path: ROOT_URLS.homeChild.images, component: ImagesComponent}]
   },
 
   {

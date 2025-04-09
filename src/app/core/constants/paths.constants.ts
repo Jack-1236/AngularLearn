@@ -4,7 +4,8 @@ export const ROOT_PATHS = {
         tab:{
             description: 'description',
             user: 'user',
-            setting: 'setting'
+            setting: 'setting',
+            images:'images'
         }
     },
     error404: '404',

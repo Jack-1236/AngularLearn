@@ -7,6 +7,7 @@ export const ROOT_URLS = {
         description: ROOT_PATHS.homeChild.tab.description,
         user: ROOT_PATHS.homeChild.tab.user,
         setting: ROOT_PATHS.homeChild.tab.setting,
+        images: ROOT_PATHS.homeChild.tab.images,
     },
     error404: `/${ROOT_PATHS.error404}`,
 };
