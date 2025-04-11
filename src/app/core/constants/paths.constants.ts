@@ -5,9 +5,12 @@ export const ROOT_PATHS = {
             description: 'description',
             user: 'user',
             setting: 'setting',
-            images:'images'
+            wallpapers:'wallpapers',
+            debugmobilereport:'debug-mobile-report'
         }
     },
     error404: '404',
 };
+
+
 

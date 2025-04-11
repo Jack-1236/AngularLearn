@@ -206,4 +206,6 @@ $tertiary-palette: map.merge(map.get($_palettes, tertiary), $_rest);
 
 
 
-$header-background-color:map.get($primary-palette, 25);
+$header-background-color:map.get($primary-palette, 30);
+
+
