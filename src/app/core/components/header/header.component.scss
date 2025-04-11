@@ -1,6 +1,7 @@
+@use 'base/theme-colors.scss' as t;
 :host {
   .header-container {
-    background-color: #417531;
+    background-color: t.$header-background-color;
 
     .header-icon {
       padding-left: 5px;

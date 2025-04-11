@@ -2,27 +2,9 @@
                headerPosition="below"
                [(selectedIndex)]="selectedTabIndex"
                (selectedTabChange)="onTabChange($event)">
-
-  <mat-tab label="Home">
-    <ng-container *ngIf="selectedTabIndex===0">
+  <mat-tab *ngFor="let tab of tabLabels let i = index;" [label]="tab">
+    <ng-container *ngIf="selectedTabIndex===i">
       <router-outlet></router-outlet>
     </ng-container>
   </mat-tab>
-  <mat-tab label="User">
-    <ng-container *ngIf="selectedTabIndex===1">
-      <router-outlet></router-outlet>
-    </ng-container>
-  </mat-tab>
-  <mat-tab label="Setting">
-    <ng-container *ngIf="selectedTabIndex===2">
-      <router-outlet></router-outlet>
-    </ng-container>
-  </mat-tab>
-
-  <mat-tab label="Images">
-    <ng-container *ngIf="selectedTabIndex ===3">
-      <router-outlet></router-outlet>
-    </ng-container>
-  </mat-tab>
-
 </mat-tab-group>
