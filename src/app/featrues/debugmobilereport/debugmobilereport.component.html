@@ -1,0 +1,49 @@
+<section class="mobile-container">
+  <div class="mobile-div">
+    <div class="mobile-address">
+      <mat-form-field appearance="outline">
+        <mat-label>Environment | Store is:
+          [<span [ngClass]="storeStatus()?'online':'offline'">{{ storeStatus() ? 'online' : 'offline' }}</span>]
+        </mat-label>
+        <mat-select (selectionChange)="onAddressSelectionChange($event)">
+          <mat-option *ngFor="let item of selectAddress" [value]="item">{{ item }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-flat-button  (click)="enabledConnection()">Connection</button>
+    </div>
+
+    <form [formGroup]="applyFromGroup" (ngSubmit)="onSubmit()" class="mobile-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Store ID</mat-label>
+        <input matInput type="text" formControlName="storeId">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>供货商类型</mat-label>
+        <mat-select formControlName="selectType">
+          <mat-option *ngFor="let type of selectTypes" [value]="type"> {{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="mobile-input-file">
+        <label> 发票文件(单个)</label>
+        <input type="file" (change)="onInvoiceFileChange($event)">
+      </div>
+
+      <div class="mobile-input-file">
+        <label> 商品文件(多个)</label>
+        <input type="file" multiple (change)="onProductFileChange($event)">
+      </div>
+
+
+      <div class="mobile-input-file">
+        <label> 发票和商品文件(单个)</label>
+        <input type="file" (change)="onInvoiceAndProductFileChange($event)">
+      </div>
+
+      <button mat-flat-button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+
+
