@@ -11,6 +11,7 @@ import {
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {filter, map, switchMap, take} from 'rxjs';
 import {NgIf} from '@angular/common';
+import {BaseComponent} from '../../providers/BaseComponent';
 
 export const PROGRESS_BAR_DELAY = 30;
 
@@ -23,24 +24,26 @@ export const PROGRESS_BAR_DELAY = 30;
   styleUrl: './progress-bar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProgressBarComponent implements OnInit {
+export class ProgressBarComponent extends BaseComponent {
   private readonly router = inject(Router);
-  private readonly destroyRef = inject(DestroyRef);
+
   readonly isLoading = signal(true)
 
-  ngOnInit(): void {
+  override ngOnInit(): void {
     this.setupPageNavigationDimming();
   }
 
 
   private setupPageNavigationDimming() {
-    this.router.events
+    this.safeSubscribe("router-events", this.router.events
       .pipe(
-        takeUntilDestroyed(this.destroyRef),//组件销毁时停止订阅
         filter((event) => event instanceof NavigationStart),//判断当前是导航开始的状态
         map(() => this.startProgressBarWithDelay()),//启动导航
         switchMap((timeoutId) => this.waitForNavigationEnd(timeoutId)),//等待导航结束并返回timeout的id
-      ).subscribe(timeoutId => this.clearNavigationTimeout(timeoutId));//清除timeout并且设置进度条不可见
+      ), {
+      next: (timeoutId) => this.clearNavigationTimeout(timeoutId)//清除timeout并且设置进度条不可见
+    })
+
 
   }
 
@@ -71,4 +74,6 @@ export class ProgressBarComponent implements OnInit {
     clearTimeout(timeoutId);
     this.isLoading.set(false);
   }
+
+
 }

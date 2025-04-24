@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import {BaseComponent} from '../../providers/BaseComponent';
 
 const WORLD_ICON = `<svg
   xmlns="http://www.w3.org/2000/svg"
@@ -161,8 +162,9 @@ const WORLD_ICON = `<svg
   templateUrl: './decorative-header.component.html',
   styleUrl: './decorative-header.component.scss',
 })
-export class DecorativeHeaderComponent {
+export class DecorativeHeaderComponent extends BaseComponent{
   constructor() {
+    super();
     const iconRegistry = inject(MatIconRegistry);
     const sanitizer = inject(DomSanitizer);
     iconRegistry.addSvgIconLiteral('world', sanitizer.bypassSecurityTrustHtml(WORLD_ICON));

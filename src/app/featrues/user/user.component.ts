@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {BaseComponent} from '../../core/providers/BaseComponent';
 
 @Component({
   selector: 'app-user',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
-export class UserComponent {
+export class UserComponent extends BaseComponent{
 
 }

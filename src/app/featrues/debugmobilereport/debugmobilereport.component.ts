@@ -1,15 +1,13 @@
-import {Component, Inject, inject, signal} from '@angular/core';
+import {Component,  inject, signal} from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {StoreConnectionClient, SupplierType} from '../../../api/MobildReporting';
+import { SupplierType} from '../../../api/MobildReporting';
 import {NgClass, NgForOf} from '@angular/common';
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
-import {timeout, TimeoutError} from 'rxjs';
 import {DebugMobileReportService} from './service/debug-mobile-report.service';
+import {BaseComponent} from '../../core/providers/BaseComponent';
 
 
 @Component({
@@ -18,7 +16,7 @@ import {DebugMobileReportService} from './service/debug-mobile-report.service';
   templateUrl: './debugmobilereport.component.html',
   styleUrl: './debugmobilereport.component.scss'
 })
-export class DebugmobilereportComponent {
+export class DebugmobilereportComponent extends BaseComponent {
   storeStatus = signal(false);
   selectAddress = ["DEBUG", "RELEASE"];
   readonly selectTypes = Object.values(SupplierType);
@@ -74,23 +72,27 @@ export class DebugmobilereportComponent {
     this.isIntervalDisabled = true;
     this.intervalId = setInterval(() => {
       if (this.isIntervalDisabled) {
-        this.mobileService.connection().subscribe({
-          next: (res) => {
-            if (res && res.length > 0) {
-              this.storeStatus.set(true);
-              clearInterval(this.intervalId);
-            } else {
-              this.storeStatus.set(false);
+        this.safeSubscribe("connection",
+          this.mobileService.connection().pipe(),
+          {
+            next: (res) => {
+              if (res && res.length > 0) {
+                this.storeStatus.set(true);
+                clearInterval(this.intervalId);
+              } else {
+                this.storeStatus.set(false);
+              }
+            },
+            error: (e) => {
+              if (this.isIntervalDisabled) {
+                this.storeStatus.set(false)
+              }
+              console.error(e)
+            },
+            complete: () => {
+              console.info('StoreConnection complete')
             }
-          }, error: (e) => {
-            if (this.isIntervalDisabled) {
-              this.storeStatus.set(false)
-            }
-            console.error(e)
-          }, complete: () => {
-            console.info('StoreConnection complete')
-          }
-        })
+          })
       }
     }, 500);
   }
@@ -101,6 +103,5 @@ export class DebugmobilereportComponent {
     this.mobileService.resetServiceUrl($event.value);
     setTimeout(() => this.enabledConnection(), 3000)
   }
-
 
 }

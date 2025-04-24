@@ -3,6 +3,7 @@ import {CardItemComponent} from "../../core/components/card-item/card-item.compo
 import {DecorativeHeaderComponent} from "../../core/components/decorative-header/decorative-header.component";
 import {NgForOf} from "@angular/common";
 import {GoogleAnalyticsService} from './service/google-analytics.service';
+import {BaseComponent} from '../../core/providers/BaseComponent';
 
 @Component({
   selector: 'app-description',
@@ -16,7 +17,7 @@ import {GoogleAnalyticsService} from './service/google-analytics.service';
   templateUrl: './description.component.html',
   styleUrl: './description.component.scss'
 })
-export class DescriptionComponent implements OnInit {
+export class DescriptionComponent extends BaseComponent{
   readonly cardItems = [
     {
       href: 'https://angular.dev/guide/signals',
@@ -45,7 +46,6 @@ export class DescriptionComponent implements OnInit {
       footer: "Discover Angular Animations"
     }]
 
-  ngOnInit(): void {
-  }
+
 
 }

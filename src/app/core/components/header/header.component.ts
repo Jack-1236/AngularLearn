@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {AuthenticationService} from '../../../featrues/authentication/service/authentication.service';
 import {ROOT_URLS} from '../../constants/routes.constants';
+import {BaseComponent} from '../../providers/BaseComponent';
 
 
 @Component({
@@ -28,7 +29,7 @@ import {ROOT_URLS} from '../../constants/routes.constants';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent  extends BaseComponent{
   readonly router = inject(Router);
 
   protected readonly ROOT_URLS = ROOT_URLS;

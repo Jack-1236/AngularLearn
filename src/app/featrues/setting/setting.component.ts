@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {BaseComponent} from '../../core/providers/BaseComponent';
 
 @Component({
   selector: 'app-setting',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './setting.component.html',
   styleUrl: './setting.component.scss'
 })
-export class SettingComponent {
+export class SettingComponent extends BaseComponent{
 
 }

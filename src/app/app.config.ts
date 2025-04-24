@@ -16,7 +16,7 @@ import {HAMMER_GESTURE_CONFIG, provideClientHydration, withEventReplay} from '@a
 import {provideHttpClient, withFetch,} from '@angular/common/http';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideCloudinaryLoader} from '@angular/common';
-import {SwipeBottomTabHammer} from './core/providers/swipe-bottom-tab-hammer';
+import {SwipeBottomTabHammer} from './core/components/bottom-tab/swipe-bottom-tab-hammer';
 
 
 export const appConfig: ApplicationConfig = {
