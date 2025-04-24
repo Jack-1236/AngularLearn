@@ -17,9 +17,6 @@ import {GoogleAnalyticsService} from './service/google-analytics.service';
   styleUrl: './description.component.scss'
 })
 export class DescriptionComponent implements OnInit {
-
-  private readonly googleService = inject(GoogleAnalyticsService);
-
   readonly cardItems = [
     {
       href: 'https://angular.dev/guide/signals',
@@ -48,14 +45,7 @@ export class DescriptionComponent implements OnInit {
       footer: "Discover Angular Animations"
     }]
 
-  readonly activeUsers = signal(1)
-
   ngOnInit(): void {
-   // this.fetchRealtimeUsers();
-  //  setInterval(() => this.fetchRealtimeUsers(), 5000);
   }
 
-  fetchRealtimeUsers() {
-    this.googleService.getRealtimeUsers().subscribe(data => this.activeUsers.set(Math.max(data.activeUsers || 0, 1)));
-  }
 }

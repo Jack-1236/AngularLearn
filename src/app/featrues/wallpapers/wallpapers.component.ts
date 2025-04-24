@@ -1,14 +1,15 @@
-import {Component, inject, OnInit, signal} from '@angular/core';
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {Component, inject, OnInit, Signal, signal} from '@angular/core';
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {InfiniteScrollDirective} from 'ngx-infinite-scroll';
-import {HttpClient} from '@angular/common/http';
+import {WallpapersService} from './service/wallpapers.service';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-wallpapers',
   imports: [
     NgForOf,
-    NgOptimizedImage,
-    InfiniteScrollDirective
+    InfiniteScrollDirective,
+    MatCardModule
   ],
   templateUrl: './wallpapers.component.html',
   styleUrl: './wallpapers.component.scss'
@@ -16,17 +17,23 @@ import {HttpClient} from '@angular/common/http';
 export class WallpapersComponent implements OnInit {
 
   page = 1;
-  readonly imageUrls = signal([])
-  scrollDistance = 1;//滚到到多少距离时触发加载
-  scrollUpDistance = 2;//向上滚到时加载更多
-  throttle = 300;//防止多次触发滚动事件
-
+  imageUrls: string[] = [];
   private isLoading = false;
-  private readonly http = inject(HttpClient)
+
+  private readonly wallpapersService = inject(WallpapersService);
+
 
   ngOnInit(): void {
-
+    this.wallpapersService.wallpapersObservable.subscribe({
+      next: urls => {
+        console.info(`Componetnt:${urls.length}`);
+        this.imageUrls = urls
+        this.isLoading = false;
+      }
+    });
+    this.loadData();
   }
+
 
 
   loadData() {
@@ -34,6 +41,7 @@ export class WallpapersComponent implements OnInit {
       return;
     }
     this.isLoading = true;
+    this.wallpapersService.loadData(this.page);
+    this.page++;
   }
-
 }

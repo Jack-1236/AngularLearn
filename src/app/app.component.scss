@@ -1,18 +1,10 @@
-@use 'base/theme-colors.scss' as *;
-@use 'base/media-queries' as *;
-
-.app-main-container {
-  width: 100%;
+.app-container {
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
 
-  .app-main-header {
-    z-index: 2;
-  }
-
-
-
 }
+
 
 

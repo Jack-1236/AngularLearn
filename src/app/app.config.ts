@@ -1,7 +1,6 @@
 import {
   ApplicationConfig,
   inject,
-  provideExperimentalZonelessChangeDetection,
   provideZoneChangeDetection
 } from '@angular/core';
 import {
@@ -13,22 +12,23 @@ import {
 } from '@angular/router';
 
 import {appRoutes} from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
+import {HAMMER_GESTURE_CONFIG, provideClientHydration, withEventReplay} from '@angular/platform-browser';
+import {provideHttpClient, withFetch,} from '@angular/common/http';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideCloudinaryLoader} from '@angular/common';
+import {SwipeBottomTabHammer} from './core/providers/swipe-bottom-tab-hammer';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideZoneChangeDetection({eventCoalescing: true}),
     provideRouter(appRoutes),
     provideClientHydration(withEventReplay()),
     provideRouter(
       appRoutes,
       withInMemoryScrolling(),
       withViewTransitions({
-        onViewTransitionCreated: ({ transition, to }) => {
+        onViewTransitionCreated: ({transition, to}) => {
           const router = inject(Router);
           const toTree = createUrlTreeFromSnapshot(to, []);
           // Skip the transition if the only thing changing is the fragment and queryParams
@@ -45,13 +45,18 @@ export const appConfig: ApplicationConfig = {
         },
       }),
       withComponentInputBinding(),
-      withRouterConfig({ paramsInheritanceStrategy: 'always', onSameUrlNavigation: 'reload' }),
+      withRouterConfig({paramsInheritanceStrategy: 'always', onSameUrlNavigation: 'reload'}),
       withPreloading(PreloadAllModules),
     ),
     provideHttpClient(
       withFetch(),
-    //  withInterceptors([authenticationInterceptor, cachingInterceptor]),
+      //  withInterceptors([authenticationInterceptor, cachingInterceptor]),
     ),
     provideAnimationsAsync(),
-    provideCloudinaryLoader('https://res.cloudinary.com/ismaestro/'),]
+    provideCloudinaryLoader('https://res.cloudinary.com/ismaestro/'),
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: SwipeBottomTabHammer,
+    }
+  ]
 };

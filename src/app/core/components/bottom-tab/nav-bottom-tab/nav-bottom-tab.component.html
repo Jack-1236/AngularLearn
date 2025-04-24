@@ -1,0 +1,21 @@
+<main class="nav-bottom-tab-container">
+  <div class="nav-bottom-tab-header">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <div class="nav-bottom-tab-body">
+    <div class="nav-bottom-tab-content">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="nav-bottom-tab-label">
+      <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+        <a mat-tab-link *ngFor="let link of tabs" [routerLink]="link.tabRoute" routerLinkActive
+           #rla="routerLinkActive"
+           [active]="rla.isActive">
+          {{ link.tabName }}
+        </a>
+      </nav>
+      <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+    </div>
+  </div>
+
+</main>

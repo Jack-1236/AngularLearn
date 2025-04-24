@@ -1,5 +1,5 @@
 <section class="mobile-container">
-  <div class="mobile-div">
+  <div class="mobile-content">
     <div class="mobile-address">
       <mat-form-field appearance="outline">
         <mat-label>Environment | Store is:
@@ -11,7 +11,6 @@
       </mat-form-field>
       <button mat-flat-button  (click)="enabledConnection()">Connection</button>
     </div>
-
     <form [formGroup]="applyFromGroup" (ngSubmit)="onSubmit()" class="mobile-form">
       <mat-form-field appearance="outline">
         <mat-label>Store ID</mat-label>

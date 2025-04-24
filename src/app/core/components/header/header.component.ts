@@ -9,7 +9,7 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {AuthenticationService} from '../../../featrues/authentication/service/authentication.service';
-import {ROOT_URLS} from '../../constants/urls.constants';
+import {ROOT_URLS} from '../../constants/routes.constants';
 
 
 @Component({
